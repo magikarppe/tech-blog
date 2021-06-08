@@ -1,0 +1,30 @@
+
+<div class="card col-7 m-5">
+  <div class="card-header">
+   <h2>{{title}}</h2>
+  </div>
+  <div class="card-body">
+   <p>{{text}}</p>
+  </div>
+  <div class="card-footer text-muted">
+   <p>Posted by {{user.username}} on {{format_date createdAt}}</p>
+  </div>
+</div>
+
+    <div style="display: none;" id="post-Id" data-value="{{id}}"></div>
+  
+    {{#each comments as |comment|}}
+    {{> comment}}
+    {{/each}}
+
+    {{#if loggedIn}}
+    <div id="comment" class ="m-5">
+        <h3>Comment</h3>
+        <input type="text" id="comment-Input"></input>
+        <button type="submit" id="submit-Btn" class="btn btn-warning">Submit</button>
+    </div>
+    {{else}}
+    <p>Please log in to comment</p>
+    {{/if}}
+</div>
+<script src="/js/comment.js"></script>
